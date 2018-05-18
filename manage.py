@@ -1,5 +1,5 @@
 from flask_script import Manager
-from moviebase import app, db, Artist
+from moviebase import app, db
 
 manager = Manager(app)
 
