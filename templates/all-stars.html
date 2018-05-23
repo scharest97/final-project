@@ -1,0 +1,39 @@
+{% extends "base.html"%}
+{% block title %}All Stars{% endblock %}
+{% block content%}
+
+  <!-- Page Content -->
+  <div class="container">
+    <h1 class="mt-5"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Stars:</h1>
+    <div class="row bottom-margin">
+      <a href="/stars/add" class="btn btn-primary" role="button" aria-disabled="true">Add Stars</a>
+    </div>
+    {% if stars %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for star in stars %}
+          <tr>
+              <th scope="row">{{star.id}}</th>
+              <td>{{star.name}}</td>
+              <td>{{star.age}}</td>
+              <td>
+                <a href="/stars/edit/{{star.id}}" class="btn btn-success" role="button">Edit</a>
+                <a href="/stars/delete/{{star.id}}" class="btn btn-danger" role="button">Delete</a>
+              </td>
+          </tr>
+          {% endfor%}
+        </tbody>
+      </table>
+    {% else %}
+      <h3>There are no stars in the database yet.</h3>
+    {% endif %}
+  </div>
+
+{% endblock%}

@@ -1,0 +1,29 @@
+{% extends "base.html"%}
+{% block title %}Delete Movie{% endblock %}
+{% block content%}
+
+  <!-- Page Content -->
+  <div class="container">
+    <h1 class="mt-5"><i class="fa fa-music" aria-hidden="true"></i> Delete the following movie:</h1>
+    <form action="/movies/delete/{{movie.id}}" method="post">
+      <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" type="text" name="title" value="{{movie.title}}" required="true" readonly="true">
+      </div>
+      <div class="form-group">
+        <label>About</label>
+        <input class="form-control" type="text" name="about" value="{{movie.about}}" readonly="true">
+      </div>
+      <div class="form-group">
+        <label>Year</label>
+        <input class="form-control" type="text" name="year" value="{{movie.year}}" readonly="true">
+      </div>
+      <div class="form-group">
+        <label>Star</label>
+        <textarea class="form-control" name="star" required="true" readonly="true">{{movie.star.name}}</textarea>
+      </div>
+      <button type="submit" class="btn btn-danger" id="delete_btn">Delete</button>
+    </form>
+  </div>
+
+{% endblock%}

@@ -1,0 +1,29 @@
+{% extends "base.html"%}
+{% block title %} Edit Star {% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5"><i class="fa fa-music" aria-hidden="true"></i> Edit Star:</h1>
+    <form action="/stars/edit/{{star.id}}" method="post">
+      <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" name="name" value="{{star.name}}" required="true">
+      </div>
+      <div class="form-group">
+        <label>Age</label>
+        <select class="form-control" name="age">
+          {% for i in range(1, 100) %}
+            {% if i == star.age %}
+              <option selected="selected">{{i}}</option>
+            {% else %}
+              <option>{{i}}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+  </div>
+
+{% endblock %}

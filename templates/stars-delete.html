@@ -1,0 +1,21 @@
+{% extends "base.html"%}
+{% block title %}Delete Star{% endblock %}
+{% block content%}
+
+  <!-- Page Content -->
+  <div class="container">
+    <h1 class="mt-5"><i class="fa fa-music" aria-hidden="true"></i> Delete the following stars:</h1>
+    <form action="/stars/delete/{{star.id}}" method="post">
+      <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" name="name" value="{{star.name}}" required="true" readonly="true">
+      </div>
+      <div class="form-group">
+        <label>Age</label>
+        <input class="form-control" type="text" name="age" value="{{star.age}}" readonly="true">
+      </div>
+      <button type="submit" class="btn btn-danger" id="delete_btn">Delete</button>
+    </form>
+  </div>
+
+{% endblock%}
